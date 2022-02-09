@@ -1,0 +1,6 @@
+framework module Pods_NABWeather_NABWeatherUITests {
+  umbrella header "Pods-NABWeather-NABWeatherUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

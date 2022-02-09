@@ -1,24 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V2O-3k-gdT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="5CD-dN-Bzy">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <navigationController id="V2O-3k-gdT" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Hu-IX-hOq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zXn-Zb-yyR" kind="relationship" relationship="rootViewController" id="n6z-91-kOr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MZ7-HF-MJW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-474" y="543"/>
+        </scene>
+        <!--Weather Forecast-->
+        <scene sceneID="qgu-cH-w7c">
+            <objects>
+                <viewController storyboardIdentifier="DailyViewController" id="zXn-Zb-yyR" customClass="DailyViewController" customModule="NABWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Go0-VI-uuy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tm8-U3-FMF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MTR-IW-2AD">
+                                <rect key="frame" x="0.0" y="139" width="414" height="723"/>
+                                <color key="backgroundColor" red="0.87308239939999999" green="0.87320822480000004" blue="0.87305486200000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eBb-73-y4Q"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MTR-IW-2AD" firstAttribute="bottom" secondItem="eBb-73-y4Q" secondAttribute="bottom" id="1WX-Oo-Jmu"/>
+                            <constraint firstItem="MTR-IW-2AD" firstAttribute="trailing" secondItem="eBb-73-y4Q" secondAttribute="trailing" id="AOn-0G-EfD"/>
+                            <constraint firstItem="MTR-IW-2AD" firstAttribute="leading" secondItem="eBb-73-y4Q" secondAttribute="leading" id="PT3-a5-cQY"/>
+                            <constraint firstItem="tm8-U3-FMF" firstAttribute="leading" secondItem="eBb-73-y4Q" secondAttribute="leading" id="TkF-DE-ig8"/>
+                            <constraint firstItem="tm8-U3-FMF" firstAttribute="top" secondItem="eBb-73-y4Q" secondAttribute="top" id="ZzN-zP-wn3"/>
+                            <constraint firstItem="MTR-IW-2AD" firstAttribute="top" secondItem="tm8-U3-FMF" secondAttribute="bottom" id="bcZ-r3-ibG"/>
+                            <constraint firstItem="tm8-U3-FMF" firstAttribute="trailing" secondItem="eBb-73-y4Q" secondAttribute="trailing" id="f9O-DM-QOh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Weather Forecast" id="vGn-uH-sDz"/>
+                    <connections>
+                        <outlet property="searchBar" destination="tm8-U3-FMF" id="Ugs-TB-yg8"/>
+                        <outlet property="tableView" destination="MTR-IW-2AD" id="LMc-j8-Dvr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J2k-FG-0ID" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="315.94202898550725" y="551.78571428571422"/>
         </scene>
     </scenes>
 </document>
